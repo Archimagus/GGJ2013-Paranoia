@@ -32,7 +32,7 @@ public class SpriteAnimation : MonoBehaviour
 				else
 					return false;
 			}
-			renderer.material.mainTexture = frames[currentFrame];
+			GetComponent<Renderer>().material.mainTexture = frames[currentFrame];
 			currentFrame++;
 			startTime = Time.time;
 		}

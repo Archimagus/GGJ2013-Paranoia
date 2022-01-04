@@ -6,6 +6,7 @@ public class StartLevelButton : MyButton
 	protected override void Click()
 	{
 		base.Click();
-		Application.LoadLevel(1);
+
+		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 	}
 }

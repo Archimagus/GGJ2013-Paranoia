@@ -33,7 +33,7 @@ public class MainCharacterController : MonoBehaviour
 		blackScreenTimer = (float)((CurrentTime - StartTime));
 		if (blackScreenTimer >= 6.0f)
 		{
-			Application.LoadLevel(0);
+			UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 		}
 	}
 	// Use this for initialization
@@ -42,6 +42,7 @@ public class MainCharacterController : MonoBehaviour
 		initialMaxSanity = Sanity = MaxSanity;
 		StartTime = Time.time;
 		timer = 0;
+		Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
@@ -116,7 +117,7 @@ public class MainCharacterController : MonoBehaviour
 							lightObject.enabled = false;
 					}
 					gameOver = true;
-					audio.PlayOneShot(gameOverScream);
+					GetComponent<AudioSource>().PlayOneShot(gameOverScream);
 				}
 			}
 		}
@@ -129,7 +130,7 @@ public class MainCharacterController : MonoBehaviour
 			if (!heartBeats.IsNullOrEmpty() && Sanity > 0)
 			{
 				heartBeatIndex = (int)((heartBeats.Length) * heartRateScale);
-				audio.PlayOneShot(heartBeats[heartBeatIndex]);
+				GetComponent<AudioSource>().PlayOneShot(heartBeats[heartBeatIndex]);
 			}
 		}
 	}

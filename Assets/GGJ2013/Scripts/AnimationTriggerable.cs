@@ -23,15 +23,15 @@ public class AnimationTriggerable : Triggerable
 	{
 		if (!string.IsNullOrEmpty(animationName))
 		{
-			animation.Play(animationName);
+			GetComponent<Animation>().Play(animationName);
 		}
 		else
 		{
-			animation.Play();
+			GetComponent<Animation>().Play();
 		}
 		if (soundEffect != null)
 		{
-			audio.PlayOneShot(soundEffect);
+			GetComponent<AudioSource>().PlayOneShot(soundEffect);
 		}
 		enabled = false;
 		e.T.enabled = false;

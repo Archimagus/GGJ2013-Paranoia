@@ -20,7 +20,7 @@ public class AudioTrigger : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 		if (playOnce)
 		{
 			GameObject.Destroy(this);

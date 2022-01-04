@@ -43,7 +43,7 @@ public class MyButton : MonoBehaviour
 				{
 					if (mouseClickSound != null && !mouseDownPlayed)
 					{
-						audio.PlayOneShot(mouseDownSound);
+						GetComponent<AudioSource>().PlayOneShot(mouseDownSound);
 						mouseDownPlayed = true;
 					}
                     mat.SetTexture("_MainTex", click);
@@ -52,7 +52,7 @@ public class MyButton : MonoBehaviour
                 {
 					if (mouseOverSound != null && !mouseOverPlayed)
 					{
-						audio.PlayOneShot(mouseOverSound);
+						GetComponent<AudioSource>().PlayOneShot(mouseOverSound);
 						mouseOverPlayed = true;
 					}
                     mat.SetTexture("_MainTex", mouseOver);
@@ -77,7 +77,7 @@ public class MyButton : MonoBehaviour
 	{
 		if (mouseClickSound != null)
 		{
-			audio.PlayOneShot(mouseClickSound);
+			GetComponent<AudioSource>().PlayOneShot(mouseClickSound);
 		}
 		if(!string.IsNullOrEmpty(preference))
 		{

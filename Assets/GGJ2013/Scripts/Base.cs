@@ -4,11 +4,12 @@ using System.Collections.Generic;
 
 public class Base : MonoBehaviour 
 {
+	int maxFollowers=-1;
 	public List<Follower> followers = new List<Follower>();
 	public List<GameObject> AIPoints { get; set; }
 	
 	// Use this for initialization
-	void Start () 
+	IEnumerator Start () 
 	{
 		AIPoints = new List<GameObject>();
 		var points = GameObject.FindGameObjectsWithTag("AIPoints");
@@ -16,6 +17,8 @@ public class Base : MonoBehaviour
 		{
 			AIPoints.Add(p);
 		}
+		yield return null;
+		maxFollowers = FindObjectsOfType<Follower>().Length;
 	}
 	public GameObject GetNewAIPoint(GameObject oldPoint)
 	{
@@ -28,9 +31,14 @@ public class Base : MonoBehaviour
 		}
 		return p;
 	}
-	
+
 	// Update is called once per frame
-    //void Update () {
-	
-    //}
+	void Update()
+	{
+		if(followers.Count == maxFollowers)
+		{
+			// Game Over.
+			UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+		}
+	}
 }

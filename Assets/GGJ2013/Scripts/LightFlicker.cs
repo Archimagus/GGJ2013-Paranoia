@@ -14,7 +14,7 @@ public class LightFlicker : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		baseRange = light.range;
+		baseRange = GetComponent<Light>().range;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,7 @@ public class LightFlicker : MonoBehaviour
 			targetIntensity = Random.Range(minIntensity, maxIntensity);
 			changeTime = Time.time;
 		}
-		light.intensity = Mathf.SmoothDamp(light.intensity, targetIntensity, ref flickerVelocity, flickerRate);
-		light.range = baseRange * light.intensity;
+		GetComponent<Light>().intensity = Mathf.SmoothDamp(GetComponent<Light>().intensity, targetIntensity, ref flickerVelocity, flickerRate);
+		GetComponent<Light>().range = baseRange * GetComponent<Light>().intensity;
 	}
 }

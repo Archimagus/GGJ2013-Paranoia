@@ -16,7 +16,6 @@ public class PauseScren : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
 	}
 	
 	// Update is called once per frame
@@ -40,7 +39,7 @@ public class PauseScren : MonoBehaviour
 			}
 			if (GUILayout.Button("Quit"))
 			{
-				Application.LoadLevel("MainMenu");
+				UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
 			}
 
 			GUILayout.FlexibleSpace();

@@ -23,8 +23,8 @@ public class SoundTimeRandomiser : MonoBehaviour
 	{
 		if (Time.time - startTime > nextTIme)
 		{
-			audio.pitch = Random.Range(minPitch, maxPitch);
-			audio.Play();
+			GetComponent<AudioSource>().pitch = Random.Range(minPitch, maxPitch);
+			GetComponent<AudioSource>().Play();
 			nextTIme = Random.Range(minTime, maxTime);
 			startTime = Time.time;
 		}

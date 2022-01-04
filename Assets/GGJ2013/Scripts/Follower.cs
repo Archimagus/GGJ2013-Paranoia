@@ -75,8 +75,8 @@ public class Follower : MonoBehaviour
 		{
 			if (Random.Range(0f, 100f) < percentToDiePerSecond)
 			{
-				renderer.enabled = false;
-				audio.PlayOneShot(deathScream);
+				GetComponent<Renderer>().enabled = false;
+				GetComponent<AudioSource>().PlayOneShot(deathScream);
 				GameObject.Destroy(gameObject, 3);
 			}
 		}

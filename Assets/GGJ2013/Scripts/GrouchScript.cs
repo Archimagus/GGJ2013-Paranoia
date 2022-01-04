@@ -17,7 +17,7 @@ public class GrouchScript : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 		anim.SetAnimation(AnimationManager.AnimationTypes.SITTING);
 	}
 }
